@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #fef08a;
+  --color-electric: #facc15;
+  --color-cyan: #eab308;
+  --color-purple: #f59e0b;
+  --color-signal: #eab308;
+  --color-warning: #f97316;
+  --color-risk: #ef4444;
+}
+
+body {
+  background-color: #000000;
+  color: #fef9c3;
+  overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(234, 179, 8, 0.18), transparent),
+    radial-gradient(ellipse 60% 50% at 100% 50%, rgba(245, 158, 11, 0.08), transparent),
+    radial-gradient(ellipse 60% 50% at 0% 50%, rgba(250, 204, 21, 0.08), transparent);
+  background-attachment: fixed;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(234, 179, 8, 0.35);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(250, 204, 21, 0.7);
+}
+
+/* Glassmorphism & Holographic Panels (Yellow & Black Cyber Theme) */
+.glass-panel {
+  background: rgba(12, 12, 6, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(234, 179, 8, 0.22);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.75);
+}
+
+.glass-panel-glow {
+  background: rgba(15, 15, 6, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(250, 204, 21, 0.45);
+  box-shadow: 
+    0 0 30px rgba(234, 179, 8, 0.2),
+    inset 0 0 20px rgba(250, 204, 21, 0.08),
+    0 8px 32px rgba(0, 0, 0, 0.8);
+}
+
+.glass-panel-purple {
+  background: rgba(18, 15, 6, 0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  box-shadow: 
+    0 0 25px rgba(245, 158, 11, 0.18),
+    inset 0 0 15px rgba(245, 158, 11, 0.06);
+}
+
+.glass-card {
+  background: rgba(15, 15, 10, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(234, 179, 8, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card:hover {
+  background: rgba(20, 20, 10, 0.9);
+  border-color: rgba(250, 204, 21, 0.5);
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Sci-fi HUD Corner Accents */
+.hud-corner {
+  position: relative;
+}
+.hud-corner::before,
+.hud-corner::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+}
+.hud-corner::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid #facc15;
+  border-left: 2px solid #facc15;
+}
+.hud-corner::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid #facc15;
+  border-right: 2px solid #facc15;
+}
+
+/* Animated Grid Matrix Background */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(250, 204, 21, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(250, 204, 21, 0.05) 1px, transparent 1px);
+}
+
+/* Radar Sweep Keyframe */
+@keyframes radar-sweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-radar-sweep {
+  animation: radar-sweep 4s linear infinite;
+}
+
+/* Hologram Scanline */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+.hologram-scanline {
+  position: relative;
+  overflow: hidden;
+}
+.hologram-scanline::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(250, 204, 21, 0.9), transparent);
+  animation: scanline 4s linear infinite;
+  opacity: 0.8;
+}
+
+/* Glowing Yellow & Gold text helpers */
+.text-glow-cyan, .text-glow-yellow {
+  text-shadow: 0 0 14px rgba(250, 204, 21, 0.8), 0 0 28px rgba(234, 179, 8, 0.4);
+}
+
+.text-glow-purple, .text-glow-amber {
+  text-shadow: 0 0 14px rgba(245, 158, 11, 0.8), 0 0 28px rgba(245, 158, 11, 0.4);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 14px rgba(250, 204, 21, 0.9), 0 0 28px rgba(250, 204, 21, 0.4);
+}
